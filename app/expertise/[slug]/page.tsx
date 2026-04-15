@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { expertisePages, getAllExpertiseSlugs } from '@/data/expertise';
@@ -75,7 +76,7 @@ export default function ExpertisePage({ params }: Props) {
 
       {/* ─── HERO ─────────────────────────────────────── */}
       <section className="pt-28 pb-16 bg-pool-deep relative overflow-hidden min-h-[420px] flex items-center">
-        <img src={`/images/expertise/${page.slug}.jpeg`} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
+        <Image src={`/images/expertise/${page.slug}.jpeg`} alt="" aria-hidden="true" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-black/70" />
 
         <div className="container-site relative z-10">
@@ -174,11 +175,12 @@ export default function ExpertisePage({ params }: Props) {
               return (
                 <div key={i} className="bg-white rounded-xl overflow-hidden border border-pool-stone shadow-card card-lift">
                   <div className="relative aspect-video overflow-hidden bg-pool-stone">
-                    <img
+                    <Image
                       src={imageSrc}
                       alt={item.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      className="object-cover"
                     />
                   </div>
                   <div className="p-6">
@@ -197,7 +199,7 @@ export default function ExpertisePage({ params }: Props) {
 
       {/* ─── WHY SHOWTIME ─────────────────────────────── */}
       <section className="section-pad text-white relative overflow-hidden">
-        <img src="/images/about-bg.jpeg" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
+        <Image src="/images/about-bg.jpeg" alt="" aria-hidden="true" fill className="object-cover" />
         <div className="container-site relative z-10">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-widest text-pool-azure mb-4">
@@ -257,11 +259,12 @@ export default function ExpertisePage({ params }: Props) {
                 className="group block rounded-xl overflow-hidden border border-pool-stone hover:border-pool-azure shadow-card card-lift focus-ring"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-pool-stone">
-                  <img
+                  <Image
                     src={`/images/service-areas/${area.slug}.jpeg`}
                     alt={`${area.name} pool service`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="px-3 py-2">

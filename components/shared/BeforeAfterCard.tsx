@@ -1,5 +1,6 @@
 'use client';
 import { useState, useRef, useCallback } from 'react';
+import Image from 'next/image';
 
 interface BeforeAfterCardProps {
   before: string;
@@ -47,25 +48,24 @@ export function BeforeAfterCard({ before, after, title, location, service }: Bef
         onPointerUp={onPointerUp}
       >
         {/* AFTER image — full width, sits behind */}
-        <img
+        <Image
           src={after}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-          draggable={false}
-          loading="lazy"
+          fill
+          className="object-cover"
         />
 
         {/* BEFORE image — clipped to left of divider */}
-        <img
-          src={before}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-          draggable={false}
-          loading="lazy"
-        />
+        <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}>
+          <Image
+            src={before}
+            alt=""
+            aria-hidden="true"
+            fill
+            className="object-cover"
+          />
+        </div>
 
         {/* Divider line */}
         <div

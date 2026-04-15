@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getNearbyAreas, getAllSlugs, areaBySlug } from '@/data/serviceAreas';
@@ -89,11 +90,13 @@ export default function ServiceAreaPage({ params }: Props) {
       {/* ─── HERO ─────────────────────────────────────── */}
       <section className="pt-28 pb-16 relative overflow-hidden min-h-[480px] flex items-center">
         {/* Background image — dedicated hero photo per area */}
-        <img
+        <Image
           src={`/images/service-areas/heroes/${area.slug}.jpeg`}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          className="object-cover"
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/70" />
@@ -190,11 +193,12 @@ export default function ServiceAreaPage({ params }: Props) {
             {strategy.serviceCards.map((s, i) => (
               <div key={i} className="bg-white rounded-xl overflow-hidden border border-pool-stone shadow-card card-lift">
                 <div className="relative aspect-video overflow-hidden bg-pool-stone">
-                  <img
+                  <Image
                     src={s.image ?? `https://placehold.co/640x360/d4e8f5/1a4a6e?text=${encodeURIComponent(s.title)}`}
                     alt={s.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6">
@@ -277,11 +281,12 @@ export default function ServiceAreaPage({ params }: Props) {
                   className="group block rounded-xl overflow-hidden border border-pool-stone hover:border-pool-azure shadow-card card-lift focus-ring"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-pool-stone">
-                    <img
+                    <Image
                       src={`/images/service-areas/${nearby.slug}.jpeg`}
                       alt={`${nearby.name} pool service`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
+                      fill
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <div className="px-3 py-2">

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export function YouTubeFacade({ videoId, title = 'Showtime Pools Video' }: { videoId: string; title?: string }) {
   const [active, setActive] = useState(false);
@@ -21,11 +22,11 @@ export function YouTubeFacade({ videoId, title = 'Showtime Pools Video' }: { vid
           aria-label={`Play: ${title}`}
         >
           {/* Thumbnail */}
-          <img
+          <Image
             src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
             alt={title}
-            className="w-full h-full object-cover"
-            loading="lazy"
+            fill
+            className="object-cover"
           />
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-200" />

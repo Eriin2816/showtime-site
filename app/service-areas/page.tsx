@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { serviceAreas } from '@/data/serviceAreas';
 import { business } from '@/data/business';
@@ -41,7 +42,7 @@ export default function ServiceAreasPage() {
 
       {/* Hero */}
       <section className="pt-28 pb-16 bg-pool-deep relative overflow-hidden min-h-[420px] flex items-center">
-        <img src="/images/service-areas-hero.png" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
+        <Image src="/images/service-areas-hero.png" alt="" aria-hidden="true" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-black/70" />
 
         <div className="container-site relative z-10">
@@ -104,11 +105,12 @@ export default function ServiceAreasPage() {
                 className="group block focus-ring rounded-lg overflow-hidden"
               >
                 <div className="relative overflow-hidden rounded-lg aspect-[4/3] bg-pool-stone">
-                  <img
+                  <Image
                     src={areaImgSrc(area.slug, area.name)}
                     alt={`${area.name} pool service`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-pool-deep/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>

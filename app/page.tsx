@@ -212,7 +212,7 @@ export default function HomePage() {
 
       {/* ─── ABOUT US ─────────────────────────────────── */}
       <section className="section-pad text-white relative overflow-hidden">
-        <img src="/images/about-bg.jpeg" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
+        <Image src="/images/about-bg.jpeg" alt="" aria-hidden="true" fill className="object-cover" />
 
         <div className="container-site relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
@@ -275,11 +275,12 @@ export default function HomePage() {
                 className="group block focus-ring rounded-xl overflow-hidden border border-pool-stone hover:border-pool-azure shadow-card card-lift"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-pool-stone">
-                  <img
+                  <Image
                     src={`/images/service-areas/${area.slug}.jpeg`}
                     alt={`${area.name} pool service`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-pool-deep/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -322,12 +323,13 @@ export default function HomePage() {
                 className="group bg-white rounded-2xl border border-pool-stone card-lift shadow-card focus-ring block overflow-hidden"
               >
                 {/* 4:3 image placeholder */}
-                <div className="aspect-[4/3] overflow-hidden bg-pool-stone">
-                  <img
+                <div className="relative aspect-[4/3] overflow-hidden bg-pool-stone">
+                  <Image
                     src={`/images/expertise/cards/${e.slug}.jpeg`}
                     alt={e.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
@@ -421,11 +423,12 @@ export default function HomePage() {
                 key={i}
                 className="inline-flex items-center justify-center mx-6 px-8 py-4 rounded-xl border border-pool-stone bg-white shadow-card shrink-0 h-20 w-40"
               >
-                <img
+                <Image
                   src={brand.logo}
                   alt={brand.name}
+                  width={120}
+                  height={40}
                   className="max-h-10 max-w-full w-auto object-contain"
-                  loading="lazy"
                 />
               </div>
             ))}
