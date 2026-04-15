@@ -15,6 +15,22 @@ node_modules/
 # Dev tools (local only)
 temporary screenshots/
 screenshot.mjs
+.claude/
+.playwright-mcp/
+frontend-design.md
+
+# Loose screenshot/reference images at root
+bel-air-full.png
+expertise-areas.png
+expertise-included.png
+expertise-scope.png
+home-expertise-cards.png
+home-expertise.png
+home-popup.png
+nearby-section.png
+service-area-cards.png
+service-areas-hub.png
+services-section.png
 
 # OS
 .DS_Store
