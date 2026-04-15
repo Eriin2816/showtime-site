@@ -65,7 +65,7 @@ export const business = {
     siteTitle: 'Showtime Pools | Premium Pool Service, Repair & Remodeling — Los Angeles',
     siteDescription:
       'Showtime Pools delivers expert pool cleaning, maintenance, repairs, equipment upgrades, and remodeling across Los Angeles County. One team handles it all — serving Sherman Oaks, Beverly Hills, Encino, and 50+ communities.',
-    ogImage: '/images/hero-bg.jpg',
+    ogImage: 'https://showtimepoolservice.com/images/og-image.png',
     siteUrl: 'https://showtimepoolservice.com',
   },
 } as const;
