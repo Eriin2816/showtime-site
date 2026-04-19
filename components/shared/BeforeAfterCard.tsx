@@ -42,10 +42,11 @@ export function BeforeAfterCard({ before, after, title, location, service }: Bef
       <div
         ref={containerRef}
         className="relative aspect-[16/10] overflow-hidden bg-pool-stone select-none"
-        style={{ cursor: dragging ? 'ew-resize' : 'col-resize' }}
+        style={{ cursor: dragging ? 'ew-resize' : 'col-resize', touchAction: 'none' }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
       >
         {/* AFTER image — full width, sits behind */}
         <Image
